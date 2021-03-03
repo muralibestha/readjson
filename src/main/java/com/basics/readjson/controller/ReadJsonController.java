@@ -9,9 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ReadJsonController {
 
+    @RequestMapping(value = "/readJson2Mapper")
+    public Customer readJson2Mapper() throws JsonProcessingException {
+        final Customer customer = JsonUtil.readJsonString2Mapper();
+        return customer;
+    }
     @RequestMapping(value = "/readJson")
     public Customer read() throws JsonProcessingException {
-        final Customer customer = JsonUtil.readJsonString();
+        final Customer customer = JsonUtil.readJsonString2JsonObject();
         return customer;
     }
 }
